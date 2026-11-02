@@ -1,0 +1,1157 @@
+/* ==========================================================================
+   THE PUBLIC APIS CHRONICLE — VINTAGE STYLESHEET
+   Aesthetics: 1990s Antique Newspaper / Aged Parchment / Library Archive
+   ========================================================================== */
+
+:root {
+  /* Vintage Paper & Parchment Palette (Daylight Theme) */
+  --paper-page: #f4ecdc;
+  --paper-card: #faf5ea;
+  --paper-card-featured: #fcf6eb;
+  --paper-slot: #ede2cb;
+  --paper-label: #f0e6d2;
+  --paper-input: #fdfaf2;
+  --paper-dropdown: #faf4e6;
+  --paper-option-hover: #ede0c6;
+  --paper-option-selected: #e2d2b4;
+
+  /* Ink & Typography Palette */
+  --ink-primary: #1f1610;    /* Deep walnut black ink */
+  --ink-secondary: #4a3b2c;  /* Warm sepia ink */
+  --ink-muted: #786552;      /* Aged pencil / faded ink */
+  --ink-border: #6d5843;     /* Hand-ruled ink edge */
+  --ink-border-dark: #3e2d1d;/* Heavy woodblock / press border */
+  --ink-rule: #826e57;
+  --border-dash: #ded0b8;
+
+  /* Vintage Rubber Stamp Accents */
+  --stamp-red: #8f2619;      /* Sealing wax red */
+  --stamp-red-bg: #fae9e6;
+  --stamp-green: #255220;    /* Archival forest ink */
+  --stamp-green-bg: #eaf3e8;
+  --stamp-amber: #754614;    /* Tobacco ink */
+  --stamp-amber-bg: #f7eedf;
+  --stamp-purple: #522d66;   /* Royal archival purple */
+  --stamp-purple-bg: #f2eaf5;
+
+  /* Shadows & Depth */
+  --card-shadow: 2px 3px 0px rgba(60, 45, 30, 0.12), 4px 6px 14px rgba(45, 30, 15, 0.08);
+  --card-shadow-hover: 3px 5px 0px rgba(60, 45, 30, 0.18), 6px 10px 18px rgba(45, 30, 15, 0.12);
+  --controls-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 2px 3px 0px rgba(60, 45, 30, 0.12), 0 8px 20px rgba(50, 35, 20, 0.06);
+  --input-inner-shadow: inset 1px 2px 4px rgba(70, 50, 30, 0.1);
+  --body-gradient: radial-gradient(ellipse at 50% 12%, #faf4e6 0%, #f3ebd7 55%, #e6d8bc 100%);
+  --vignette-shadow: inset 0 0 90px rgba(80, 55, 30, 0.15);
+  --grain-opacity: 0.045;
+
+  /* Typography Stacks */
+  --font-serif-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-serif-body: 'Lora', 'Baskerville', 'Times New Roman', Georgia, serif;
+  --font-typewriter: 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
+/* ==========================================================================
+   Midnight Archive Theme (Dark Parchment / Antique Slate)
+   ========================================================================== */
+[data-theme="dark"] {
+  --paper-page: #151311;
+  --paper-card: #1d1915;
+  --paper-card-featured: #241d18;
+  --paper-slot: #1a1612;
+  --paper-label: #221c17;
+  --paper-input: #181410;
+  --paper-dropdown: #1e1914;
+  --paper-option-hover: #29221b;
+  --paper-option-selected: #362c23;
+
+  /* Warm Antique Ivory & Linen Ink on Dark Parchment */
+  --ink-primary: #f5eedb;    /* Warm ivory ink */
+  --ink-secondary: #cec3ad;  /* Antique linen */
+  --ink-muted: #968975;      /* Aged parchment pencil */
+  --ink-border: #4a3c2e;     /* Deep walnut leather edge */
+  --ink-border-dark: #78624d;/* Brass / warm press border */
+  --ink-rule: #3d3126;
+  --border-dash: #382c20;
+
+  /* Vintage Rubber Stamp Accents (Dark Mode Adjusted) */
+  --stamp-red: #e65d4c;      /* Bright sealing wax */
+  --stamp-red-bg: #2e1717;
+  --stamp-green: #52ad48;    /* Muted emerald ink */
+  --stamp-green-bg: #152614;
+  --stamp-amber: #e09f4f;    /* Warm amber tobacco */
+  --stamp-amber-bg: #2b1d0f;
+  --stamp-purple: #c085de;   /* Soft archival purple */
+  --stamp-purple-bg: #27152e;
+
+  /* Shadows & Effects for Dark Mode */
+  --card-shadow: 2px 3px 0px rgba(0, 0, 0, 0.5), 4px 6px 14px rgba(0, 0, 0, 0.35);
+  --card-shadow-hover: 3px 5px 0px rgba(0, 0, 0, 0.7), 6px 10px 20px rgba(0, 0, 0, 0.45);
+  --controls-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 2px 3px 0px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --input-inner-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.45);
+  --body-gradient: radial-gradient(ellipse at 50% 12%, #1e1a16 0%, #151311 55%, #0c0b09 100%);
+  --vignette-shadow: inset 0 0 100px rgba(0, 0, 0, 0.75);
+  --grain-opacity: 0.055;
+}
+
+/* ==========================================================================
+   Global Reset & Mobile UX
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Remove mobile blue highlight rectangle */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Procedural Paper Grain & Fiber Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+body {
+  font-family: var(--font-serif-body);
+  background-color: var(--paper-page);
+  background-image: var(--body-gradient);
+  color: var(--ink-primary);
+  min-height: 100vh;
+  padding: 2.25rem 1.5rem 5rem 1.5rem;
+  line-height: 1.6;
+  box-shadow: var(--vignette-shadow);
+  -webkit-font-smoothing: subpixel-antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+button, a, input, select, .custom-select-trigger, .custom-select-option, .tab-btn, .fab-btn {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: manipulation;
+}
+
+/* ==========================================================================
+   Vintage Archival Masthead
+   ========================================================================== */
+.masthead {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto 2.5rem auto;
+  border-top: 3px double var(--ink-border-dark);
+  border-bottom: 3px double var(--ink-border-dark);
+  padding: 1.25rem 0 1.5rem 0;
+  position: relative;
+}
+.masthead-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-typewriter);
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-secondary);
+  border-bottom: 1px solid var(--ink-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+.masthead-vol {
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.masthead-center-tag {
+  letter-spacing: 0.1em;
+  text-align: center;
+  flex: 1;
+}
+.masthead-edition {
+  letter-spacing: 0.08em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.masthead-title {
+  font-family: var(--font-serif-heading);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  line-height: 1.1;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+.masthead-deck {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-secondary);
+  max-width: 780px;
+  margin: 0 auto 1.2rem auto;
+  line-height: 1.55;
+}
+.masthead-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--ink-muted);
+}
+.rule-line {
+  height: 1px;
+  background: var(--ink-border);
+  flex: 1;
+  max-width: 140px;
+}
+.ornament-diamond {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--ink-border-dark);
+}
+
+/* Hugeicons in vintage ink styling */
+.hugeicon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  stroke-width: 1.6;
+}
+
+/* Quick action buttons & cache bar - kept in DOM for coding agents, hidden from UI */
+.quick-actions,
+.cache-indicator {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Controls ("Library Card Catalog Drawer")
+   ========================================================================== */
+.controls {
+  background: var(--paper-slot);
+  border: 1.5px solid var(--ink-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  box-shadow: var(--controls-shadow);
+  margin-bottom: 2rem;
+  position: relative;
+}
+.controls::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 10px; right: 10px;
+  height: 2px;
+  background: var(--ink-rule);
+  opacity: 0.35;
+}
+.search-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 1.25rem;
+}
+.search-wrapper {
+  flex: 2;
+  min-width: 280px;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink-border);
+  background: var(--paper-input);
+  color: var(--ink-primary);
+  font-family: var(--font-typewriter);
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: var(--input-inner-shadow);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.search-input:focus {
+  border-color: var(--ink-border-dark);
+  box-shadow: var(--input-inner-shadow), 0 0 0 2px rgba(120, 98, 77, 0.25);
+}
+.search-icon {
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-secondary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Custom Dropdown ("Archival Classification Index")
+   ========================================================================== */
+.custom-select-wrapper {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  user-select: none;
+}
+.custom-select-trigger {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  padding: 0.85rem 1.15rem;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink-border);
+  background: var(--paper-input);
+  color: var(--ink-primary);
+  font-family: var(--font-serif-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  gap: 0.5rem;
+  box-shadow: 1px 2px 0px var(--ink-border);
+}
+.custom-select-trigger:focus,
+.custom-select-wrapper.open .custom-select-trigger {
+  border-color: var(--ink-border-dark);
+  box-shadow: 0 0 0 2px rgba(120, 98, 77, 0.25);
+}
+.custom-select-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.custom-select-arrow {
+  color: var(--ink-border-dark);
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-select-wrapper.open .custom-select-arrow {
+  transform: rotate(180deg);
+}
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--paper-dropdown);
+  border: 2px solid var(--ink-border-dark);
+  border-radius: 3px;
+  box-shadow: var(--card-shadow-hover);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.custom-select-search-box {
+  padding: 0.65rem;
+  border-bottom: 1.5px solid var(--ink-border);
+  background: var(--paper-slot);
+}
+.custom-select-search-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: var(--paper-input);
+  border: 1px solid var(--ink-border);
+  border-radius: 2px;
+  color: var(--ink-primary);
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  outline: none;
+}
+.custom-select-search-input:focus {
+  border-color: var(--ink-border-dark);
+}
+.custom-select-options {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 0.35rem 0;
+}
+.custom-select-options::-webkit-scrollbar {
+  width: 7px;
+}
+.custom-select-options::-webkit-scrollbar-thumb {
+  background: var(--ink-border);
+  border-radius: 2px;
+}
+.custom-select-option {
+  padding: 0.6rem 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ink-primary);
+  font-family: var(--font-serif-body);
+  font-size: 0.92rem;
+  cursor: pointer;
+  border-bottom: 1px dotted var(--border-dash);
+  transition: background 0.12s;
+}
+.custom-select-option:last-child {
+  border-bottom: none;
+}
+.custom-select-option:hover {
+  background: var(--paper-option-hover);
+}
+.custom-select-option.selected {
+  background: var(--paper-option-selected);
+  font-weight: 700;
+}
+.custom-select-option-count {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  background: var(--paper-label);
+  border: 1px solid var(--ink-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  color: var(--ink-secondary);
+  font-weight: 700;
+}
+.custom-select-option.selected .custom-select-option-count {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  border-color: var(--ink-border-dark);
+}
+.custom-select-no-results {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--ink-muted);
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Auth Group Tabs ("Manila Folder Tabs")
+   ========================================================================== */
+.auth-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.tab-btn {
+  font-family: var(--font-typewriter);
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--paper-card);
+  color: var(--ink-secondary);
+  border: 1.5px solid var(--ink-border);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 1px 2px 0px var(--ink-border);
+  transition: all 0.15s ease;
+}
+.tab-btn:hover {
+  background: var(--paper-slot);
+  color: var(--ink-primary);
+}
+.tab-btn.active {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  border-color: var(--ink-border-dark);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .tab-btn.active {
+  background: var(--ink-primary);
+  color: #151311;
+  border-color: var(--ink-primary);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ==========================================================================
+   Stats & Record Status Bar
+   ========================================================================== */
+.stats-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  border-top: 1px dotted var(--ink-border);
+  border-bottom: 1px dotted var(--ink-border);
+  padding: 0.55rem 0.25rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.stats-count strong {
+  color: var(--ink-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   API Cards ("Vintage Paper Index Slips")
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.35rem;
+}
+.card {
+  background: var(--paper-card);
+  border: 1.5px solid var(--ink-border);
+  border-radius: 2px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+}
+/* Top ledger rule inside the card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--ink-border);
+  opacity: 0.35;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Pinned & Featured Cards */
+.card.pinned-card,
+.card.featured-card {
+  border: 2px double var(--stamp-red);
+  background: var(--paper-card-featured);
+}
+.card.pinned-card::before,
+.card.featured-card::before {
+  background: var(--stamp-red);
+  height: 4px;
+  opacity: 1;
+}
+.card-top {
+  margin-bottom: 1rem;
+}
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+.card-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.hugeicon-star {
+  color: var(--stamp-red);
+}
+.card-desc {
+  font-family: var(--font-serif-body);
+  font-size: 0.925rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Rubber Ink Stamps & Labels
+   ========================================================================== */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+.badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+}
+.badge-cat {
+  background: var(--paper-slot);
+  color: var(--ink-primary);
+  border: 1px solid var(--ink-border);
+}
+.badge-no-auth {
+  background: var(--stamp-green-bg);
+  color: var(--stamp-green);
+  border: 1px dashed var(--stamp-green);
+}
+.badge-api-key {
+  background: var(--stamp-amber-bg);
+  color: var(--stamp-amber);
+  border: 1px dashed var(--stamp-amber);
+}
+.badge-oauth {
+  background: var(--stamp-purple-bg);
+  color: var(--stamp-purple);
+  border: 1px dashed var(--stamp-purple);
+}
+.badge-other {
+  background: #f5e8ea;
+  color: #7a2235;
+  border: 1px dashed #7a2235;
+}
+.badge-flag {
+  background: var(--paper-label);
+  color: var(--ink-secondary);
+  border: 1px dotted var(--ink-border);
+  font-size: 0.68rem;
+}
+.badge-pinned {
+  background: var(--stamp-red-bg);
+  color: var(--stamp-red);
+  border: 1.5px solid var(--stamp-red);
+  letter-spacing: 0.08em;
+}
+.badge-featured {
+  background: var(--stamp-red-bg);
+  color: var(--stamp-red);
+  border: 1.5px solid var(--stamp-red);
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   Buttons ("Typewriter Printed Labels")
+   ========================================================================== */
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.btn-visit {
+  flex: 1;
+  background: var(--paper-input);
+  border: 1.5px solid var(--ink-border-dark);
+  color: var(--ink-primary);
+  font-family: var(--font-typewriter);
+  font-weight: 700;
+  font-size: 0.825rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 3px;
+  box-shadow: 1.5px 2px 0px var(--ink-border-dark);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 0.12s;
+}
+.btn-visit:hover {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  box-shadow: 0.5px 1px 0px var(--ink-border-dark);
+  transform: translate(1px, 1px);
+}
+.btn-copy-prompt {
+  background: var(--paper-slot);
+  border: 1.5px solid var(--ink-border);
+  color: var(--ink-secondary);
+  font-family: var(--font-typewriter);
+  font-weight: 700;
+  font-size: 0.825rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 3px;
+  box-shadow: 1.5px 2px 0px var(--ink-border);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.12s;
+  white-space: nowrap;
+}
+.btn-copy-prompt:hover {
+  background: var(--ink-secondary);
+  color: var(--paper-page);
+  border-color: var(--ink-secondary);
+  box-shadow: 0.5px 1px 0px var(--ink-secondary);
+  transform: translate(1px, 1px);
+}
+
+.load-more-btn {
+  display: block;
+  margin: 2.5rem auto;
+  padding: 0.85rem 2.5rem;
+  background: var(--paper-card);
+  color: var(--ink-primary);
+  border: 2px solid var(--ink-border-dark);
+  border-radius: 3px;
+  font-family: var(--font-typewriter);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 3px 0px var(--ink-border-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.load-more-btn:hover {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--ink-border-dark);
+}
+
+/* ==========================================================================
+   Empty State & Mascot Animation (X X Eyes holding empty scroll)
+   ========================================================================== */
+.empty-state-card {
+  grid-column: 1 / -1;
+  background: var(--paper-card);
+  border: 1.5px dashed var(--ink-border);
+  border-radius: 4px;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  animation: fadeInEmpty 0.35s ease-out;
+}
+@keyframes fadeInEmpty {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.empty-mascot-container {
+  margin-bottom: 1.5rem;
+  animation: mascotFloat 3.2s ease-in-out infinite;
+}
+.empty-mascot-svg .mascot-scroll {
+  transform-origin: 80px 105px;
+  animation: scrollSway 3.2s ease-in-out infinite alternate;
+}
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-1.5deg); }
+}
+@keyframes scrollSway {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+.empty-state-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+  margin-bottom: 0.6rem;
+}
+.empty-state-desc {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  max-width: 580px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.55;
+}
+.empty-state-clear-btn {
+  background: var(--paper-slot);
+  border: 1.5px solid var(--ink-border-dark);
+  color: var(--ink-primary);
+  font-family: var(--font-typewriter);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 2px 3px 0px var(--ink-border-dark);
+  transition: all 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.empty-state-clear-btn:hover {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--ink-border-dark);
+}
+
+/* ==========================================================================
+   Floating Action Buttons (Bottom-Right Corner)
+   ========================================================================== */
+.fab-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1500;
+}
+.fab-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--paper-card);
+  border: 1.5px solid var(--ink-border-dark);
+  color: var(--ink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 3px 0px var(--ink-border-dark), 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.16s ease;
+  outline: none;
+}
+.fab-btn:hover {
+  background: var(--ink-border-dark);
+  color: var(--paper-page);
+  transform: translateY(-2px);
+  box-shadow: 2px 5px 0px var(--ink-border-dark), 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+.fab-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--ink-border-dark);
+}
+.fab-top-btn {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+.fab-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Toast Notification ("Stamped Telegram / Library Slip")
+   ========================================================================== */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background: var(--paper-card);
+  border: 2px solid var(--ink-border-dark);
+  color: var(--ink-primary);
+  font-family: var(--font-typewriter);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.85rem 1.4rem;
+  border-radius: 3px;
+  box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.toast-icon {
+  color: var(--stamp-green);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Loading Screen
+   ========================================================================== */
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: var(--ink-secondary);
+  font-family: var(--font-typewriter);
+}
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--paper-slot);
+  border-top-color: var(--ink-border-dark);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Responsive Adaptations & Mobile-First Polishing
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem 0.85rem 5.5rem 0.85rem;
+  }
+  .container {
+    width: 100%;
+  }
+  .masthead {
+    margin-bottom: 1.5rem;
+    padding: 1rem 0 1.25rem 0;
+  }
+  .masthead-meta {
+    display: none !important;
+  }
+  .masthead-title {
+    font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+  }
+  .masthead-deck {
+    font-size: 0.98rem;
+    padding: 0 0.25rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .rule-line {
+    max-width: 80px;
+  }
+  .controls {
+    padding: 1.15rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .search-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .search-wrapper {
+    width: 100%;
+  }
+  .search-input {
+    min-height: 46px;
+    font-size: 0.92rem;
+  }
+  .custom-select-wrapper {
+    width: 100%;
+  }
+  .custom-select-trigger {
+    width: 100%;
+    min-height: 46px;
+    font-size: 0.9rem;
+  }
+  .custom-select-dropdown {
+    width: 100%;
+    max-height: 280px;
+  }
+  /* Horizontal swipeable tabs with touch scrolling */
+  .auth-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.45rem;
+    padding-bottom: 4px;
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--ink-border);
+  }
+  .auth-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 0.45rem 0.8rem;
+    min-height: 38px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card {
+    padding: 1.25rem 1.1rem;
+  }
+  .card-title {
+    font-size: 1.18rem;
+  }
+  .card-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .card-actions .btn-visit,
+  .card-actions .btn-copy-prompt {
+    flex: 1;
+    min-height: 42px;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .fab-container {
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));
+    right: 1.25rem;
+    gap: 0.65rem;
+  }
+  .fab-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .toast {
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));
+    left: 50%;
+    transform: translate(-50%, 20px);
+    width: calc(100% - 2.5rem);
+    max-width: 400px;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+  }
+  .toast.show {
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.85rem 0.65rem 5.5rem 0.65rem;
+  }
+  .masthead {
+    margin-bottom: 1.15rem;
+    padding: 0.85rem 0 1rem 0;
+  }
+  .masthead-meta {
+    display: none !important;
+  }
+  .masthead-title {
+    font-size: clamp(1.65rem, 7.5vw, 2.2rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.45rem;
+  }
+  .masthead-deck {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+    padding: 0;
+  }
+  .rule-line {
+    max-width: 45px;
+  }
+  .ornament-diamond {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+  .controls {
+    padding: 0.9rem 0.75rem;
+    border-radius: 3px;
+  }
+  .search-input {
+    font-size: 0.86rem;
+    padding: 0.65rem 0.75rem 0.65rem 2.3rem;
+  }
+  .custom-select-trigger {
+    font-size: 0.84rem;
+    padding: 0.6rem 0.75rem;
+  }
+  .tab-btn {
+    font-size: 0.76rem;
+    padding: 0.4rem 0.65rem;
+    min-height: 36px;
+  }
+  .stats-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.15rem;
+    margin-bottom: 0.85rem;
+  }
+  .card {
+    padding: 1rem 0.85rem;
+  }
+  .card-title {
+    font-size: 1.08rem;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.4rem;
+  }
+  .card-desc {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+  }
+  .empty-state-card {
+    padding: 2rem 0.85rem;
+  }
+  .empty-mascot-svg {
+    width: 125px;
+    height: 115px;
+  }
+  .empty-state-title {
+    font-size: 1.25rem;
+  }
+  .empty-state-desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 1.15rem;
+  }
+  .empty-state-clear-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 0.65rem 0.85rem;
+    min-height: 42px;
+  }
+}

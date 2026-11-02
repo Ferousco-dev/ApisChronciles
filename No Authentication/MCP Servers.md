@@ -1,0 +1,23 @@
+# MCP Servers APIs (No Authentication)
+
+Total APIs: 17
+
+| Name | Description | Auth | HTTPS | CORS | Link |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Agent Nexus** | Find agent-callable APIs, MCP servers and CLIs by capability, with live health and uptime data | `No` | `HTTP` | [Glama](https://glama.ai/mcp/servers/agent-nexus) | [Visit Docs](https://agentnexus.app) |
+| **ContextFetch** | Web search and any page as Markdown pruned to the query, plus research, crawl and site maps | `No` | `stdio`, `HTTP` | [Glama](https://glama.ai/mcp/servers/lachy3433/contextfetch-mcp) | [Visit Docs](https://github.com/lachy3433/contextfetch-mcp) |
+| **corpusAI Cloud Pricing** | Cloud, GPU and LLM token prices for agents, free discovery tools and paid per-call data | `No` | `stdio`, `HTTP` | [npm](https://www.npmjs.com/package/corpus-cloud-pricing-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=corpus-cloud-pricing) | [Visit Docs](https://cloud.trycorpus.ai/docs#quick-start-for-agents) |
+| **Council of AI** | Read a signed AI measurement board and verify its signed records and Merkle proofs | `No` | `HTTP` | [Glama](https://glama.ai/mcp/connectors/ai.councilof/gspc-free) | [Visit Docs](https://councilof.ai/connect/claude/) |
+| **Edgepedia** | Search and read Edgepedia, a free and growing encyclopedia with citations | `No` | `HTTP` | [Glama](https://glama.ai/mcp/connectors/ai.edgechat/edgepedia) | [Visit Docs](https://github.com/EdgePlat/edgepedia-mcp) |
+| **Filesystem** | Read/write local files | `No` | `stdio` | – | [Visit Docs](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) |
+| **IndiaInsurances** | Indian insurance policy wordings read clause by clause, with verbatim quotes | `No` | `HTTP` | – | [Visit Docs](https://indiainsurances.com/for-agents) |
+| **OpenApps** | Rankings, launches and featuring across the ChatGPT, Claude, Cursor and Grok Bot app stores | `No` | `HTTP` | – | [Visit Docs](https://theopenapps.com/docs/mcp) |
+| **Openpath** | US job listings and local businesses for agents, with apply links and owner inboxes | `No` | `HTTP` | [Anthropic](https://claude.ai/directory/openpath) · [Glama](https://glama.ai/mcp/connectors/sh.openpath/openpath) · [Smithery](https://smithery.ai/servers/openpath/openpath) | [Visit Docs](https://openpath.sh/docs/connect) |
+| **OpenSwissData** | Swiss customs tariff (TARES), FINMA register and warnings, NOGA/NACE/ISIC code crosswalks | `No` | `stdio`, `HTTP` | [Glama](https://glama.ai/mcp/connectors/io.github.cammac-creator/openswissdata) | [Visit Docs](https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server) |
+| **Refnusa** | Indonesian holidays, wages, regions, postal codes, tax, food prices and NIK/plate checks (31 tools) | `No` | `HTTP` | [Glama](https://glama.ai/mcp/connectors/dev.refnusa/refnusa) | [Visit Docs](https://refnusa.dev/) |
+| **RegSentry** | Inspect authorized static tracking signals and review supplied consent evidence | `No` | `HTTP` | [Glama](https://glama.ai/mcp/connectors/com.regsentry/tracking-inspector) | [Visit Docs](https://regsentry.com/mcp-guide) |
+| **Silicon Floor** | Who owns AI and chip stocks, what insiders sell, how fast they grow: answers from SEC filings | `No` | `HTTP` | [Anthropic](https://claude.ai/directory/silicon-floor) · [Glama](https://glama.ai/mcp/connectors/com.siliconfloor/silicon-floor) | [Visit Docs](https://siliconfloor.com/docs/mcp) |
+| **SkyAccess** | Search 5,000+ live empty leg flights, get charter price estimates and booking links | `No` | `HTTP` | [Cursor](https://cursor.directory/plugins/skyaccess) · [Glama](https://glama.ai/mcp/connectors/com.skyaccess/skyaccess) | [Visit Docs](https://github.com/sky-access/skyaccess-mcp) |
+| **Toolalize** | Unit and live currency conversion tools for agents, no key needed | `No` | `HTTP` | [Glama](https://glama.ai/mcp/connectors/io.github.Vertisky/toolalize-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=toolalize) | [Visit Docs](https://github.com/Vertisky/toolalize-mcp) |
+| **Vuntum** | Sourced, dated data on consumer robots and physical AI: specs, prices, evidence | `No` | `HTTP` | [Glama](https://glama.ai/mcp/servers/RAAAAAGEEEEE/vuntum-mcp) | [Visit Docs](https://github.com/RAAAAAGEEEEE/vuntum-mcp) |
+| **XposedOrNot** | Check an email against known data breaches, read its breach history and get domain breach counts | `No` | `HTTP` | [Cursor](https://cursor.directory/plugins/xposedornot) · [Glama](https://glama.ai/mcp/connectors/com.xposedornot/xposedornot) | [Visit Docs](https://xposedornot.com/mcp) |

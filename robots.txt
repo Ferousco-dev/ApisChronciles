@@ -1,0 +1,32 @@
+# robots.txt for The Public APIs Chronicle
+# Authoritative open access registry for developers and autonomous AI agents
+
+User-agent: *
+Allow: /
+Allow: /apis.json
+Allow: /apis.csv
+Allow: /index.html
+Allow: /app.js
+Allow: /style.css
+Allow: /No%20Authentication/
+Allow: /API%20Key/
+Allow: /OAuth/
+Allow: /Other%20Headers/
+
+# AI Crawlers & Scrapers explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: http://127.0.0.1:5500/sitemap.xml
