@@ -367,58 +367,7 @@
     return `
       <div class="empty-state-card">
         <div class="empty-mascot-container">
-          <svg class="empty-mascot-svg" width="160" height="150" viewBox="0 0 160 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Archivist Scholar Cap -->
-            <polygon points="40,32 80,18 120,32 80,42" fill="var(--ink-border-dark)" stroke="var(--ink-primary)" stroke-width="1.8" />
-            <polygon points="76,28 84,28 83,38 77,38" fill="var(--stamp-red)" />
-            <line x1="80" y1="38" x2="114" y2="44" stroke="var(--stamp-red)" stroke-width="2" stroke-linecap="round" />
-            <circle cx="114" cy="46" r="3" fill="var(--stamp-red)" />
-
-            <!-- Mascot Head (Aged Parchment Scroll Creature) -->
-            <rect x="42" y="38" width="76" height="58" rx="20" fill="var(--paper-slot)" stroke="var(--ink-border-dark)" stroke-width="2" />
-
-            <!-- Cute Blushing Cheeks -->
-            <ellipse cx="53" cy="71" rx="6" ry="3.5" fill="var(--stamp-red-bg)" stroke="var(--stamp-red)" stroke-width="0.8" opacity="0.85" />
-            <ellipse cx="107" cy="71" rx="6" ry="3.5" fill="var(--stamp-red-bg)" stroke="var(--stamp-red)" stroke-width="0.8" opacity="0.85" />
-
-            <!-- Mascot X X Eyes (Per User Request) -->
-            <!-- Left X Eye -->
-            <g class="mascot-eye-left">
-              <line x1="56" y1="53" x2="68" y2="65" stroke="var(--stamp-red)" stroke-width="2.8" stroke-linecap="round" />
-              <line x1="68" y1="53" x2="56" y2="65" stroke="var(--stamp-red)" stroke-width="2.8" stroke-linecap="round" />
-            </g>
-            <!-- Right X Eye -->
-            <g class="mascot-eye-right">
-              <line x1="92" y1="53" x2="104" y2="65" stroke="var(--stamp-red)" stroke-width="2.8" stroke-linecap="round" />
-              <line x1="104" y1="53" x2="92" y2="65" stroke="var(--stamp-red)" stroke-width="2.8" stroke-linecap="round" />
-            </g>
-
-            <!-- Wavy Confused Ink Mouth -->
-            <path d="M72 74 Q76 71 80 74 T88 74" fill="none" stroke="var(--ink-primary)" stroke-width="2.2" stroke-linecap="round" />
-
-            <!-- Holding Hands -->
-            <circle cx="38" cy="98" r="7" fill="var(--paper-slot)" stroke="var(--ink-border-dark)" stroke-width="2" />
-            <circle cx="122" cy="98" r="7" fill="var(--paper-slot)" stroke="var(--ink-border-dark)" stroke-width="2" />
-
-            <!-- Swaying Unrolled Empty Scroll -->
-            <g class="mascot-scroll">
-              <!-- Left Wooden Roller -->
-              <rect x="22" y="86" width="7" height="42" rx="3.5" fill="var(--ink-secondary)" stroke="var(--ink-border-dark)" stroke-width="1.5" />
-              <!-- Right Wooden Roller -->
-              <rect x="131" y="86" width="7" height="42" rx="3.5" fill="var(--ink-secondary)" stroke="var(--ink-border-dark)" stroke-width="1.5" />
-
-              <!-- Parchment Body of Scroll -->
-              <path d="M27 90 H133 V124 H27 Z" fill="var(--paper-card)" stroke="var(--ink-border)" stroke-width="1.5" />
-              
-              <!-- Faint Ruled Lines on Empty Scroll -->
-              <line x1="36" y1="99" x2="124" y2="99" stroke="var(--ink-muted)" stroke-width="1" stroke-dasharray="2 3" opacity="0.6" />
-              <line x1="36" y1="107" x2="124" y2="107" stroke="var(--ink-muted)" stroke-width="1" stroke-dasharray="2 3" opacity="0.6" />
-              <line x1="36" y1="115" x2="124" y2="115" stroke="var(--ink-muted)" stroke-width="1" stroke-dasharray="2 3" opacity="0.6" />
-
-              <!-- Faint "BLANK" Archival Watermark -->
-              <text x="80" y="112" font-family="'Courier Prime', monospace" font-size="9" font-weight="700" fill="var(--stamp-red)" opacity="0.45" text-anchor="middle" letter-spacing="2">NO ENTRIES</text>
-            </g>
-          </svg>
+          <img src="mascot.png" alt="Archivist Mascot" class="empty-mascot-img" width="160" height="160">
         </div>
         <h3 class="empty-state-title">No Archival Records Found</h3>
         <p class="empty-state-desc">The catalog yielded zero documents matching &ldquo;<strong>${escapeHtml(query)}</strong>&rdquo;. The archivist searched the vaults but the scroll remains entirely blank.</p>

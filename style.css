@@ -773,6 +773,15 @@ button, a, input, select, .custom-select-trigger, .custom-select-option, .tab-bt
   margin-bottom: 1.5rem;
   animation: mascotFloat 3.2s ease-in-out infinite;
 }
+.empty-mascot-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px double var(--ink-border);
+  box-shadow: 2px 4px 14px rgba(60, 45, 30, 0.2);
+  background: var(--paper-slot);
+}
 .empty-mascot-svg .mascot-scroll {
   transform-origin: 80px 105px;
   animation: scrollSway 3.2s ease-in-out infinite alternate;
